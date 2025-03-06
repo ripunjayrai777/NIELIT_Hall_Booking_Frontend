@@ -6,7 +6,7 @@ const UserDashboard = () => {
 
   useEffect(() => {
     axios
-      .get("/api/bookings/user")
+      .get("http://localhost:5000/api/bookings/user")
       .then((res) => setBookings(res.data))
       .catch((err) => console.error(err));
   }, []);

@@ -6,14 +6,14 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     axios
-      .get("/api/bookings/requests")
+      .get("http://localhost:5000/api/bookings/requests")
       .then((res) => setBookings(res.data))
       .catch((err) => console.error(err));
   }, []);
 
   const handleStatusChange = (id, status) => {
     axios
-      .post(`/api/bookings/${id}/status`, { status })
+      .post(`http://localhost:5000/api/bookings/${id}/status`, { status })
       .then(() =>
         setBookings((prev) =>
           prev.map((b) => (b._id === id ? { ...b, status } : b))
